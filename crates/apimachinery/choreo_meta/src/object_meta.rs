@@ -1,4 +1,4 @@
-use crate::managed_field_entry::ManagedFieldsEntry;
+use crate::{managed_field_entry::ManagedFieldsEntry, relationship_reference::RelationReference};
 use crate::owner_reference::OwnerReference;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
@@ -63,6 +63,9 @@ pub struct ObjectMeta {
     /// List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_references: Option<Vec<OwnerReference>>,
+
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub relation_references: Option<Vec<RelationReference>>,
 
     /// An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.
     ///

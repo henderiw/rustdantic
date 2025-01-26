@@ -16,3 +16,9 @@ pub use self::owner_reference::OwnerReference;
 pub mod condition;
 pub use self::condition::Condition;
 pub use self::condition::ConditionStatus;
+
+pub mod object_reference;
+pub use self::object_reference::ObjectReference;
+
+pub mod relationship_reference;
+pub use self::relationship_reference::RelationReference;
