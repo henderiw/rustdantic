@@ -1,0 +1,49 @@
+[package]
+name = "rustdantic"
+version = "0.1.0"
+edition = "2021"
+
+#[lib]
+#proc-macro = true
+
+#[dependencies]
+#syn = { version = "2.0", features = ["full"] }
+#quote = "1.0"
+#proc-macro2 = "1.0"
+
+
+[dependencies]
+choreo_derive = { workspace = true}
+default_derive = { workspace = true}
+validate_derive = { workspace = true}
+choreo_meta = { workspace = true}
+choreo_core = { workspace = true}
+choreo_api = { workspace = true}
+serde = { workspace = true}
+serde_json = { workspace = true}
+serde_with = { workspace = true}
+fmt = { workspace = true}
+regex = "1.11.1"
+
+
+[workspace]
+members = [
+    "crates/default_derive",
+    "crates/validate_derive",
+    "crates/apimachinery/choreo_meta",
+    "crates/apimachinery/choreo_core",
+    "crates/apimachinery/choreo_derive",
+]
+
+[workspace.dependencies]
+darling = "0.20.3"
+serde = {version = "1.0.217", features = ["derive"]}
+serde_json = "1.0.137"
+serde_with = "3.12.0"
+choreo_api = {path = "crates/apimachinery/choreo_api"}
+choreo_meta = {path = "crates/apimachinery/choreo_meta"}
+choreo_core = {path = "crates/apimachinery/choreo_core"}
+choreo_derive = { path = "crates/apimachinery/choreo_derive" }
+validate_derive = {path = "crates/validate_derive"}
+default_derive = {path = "crates/default_derive"}
+fmt = "0.1.0"
