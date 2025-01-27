@@ -1,4 +1,5 @@
 use std::borrow::Cow;
+use choreo_meta::ObjectMeta;
 
 pub trait Resource {
     /// Type information for types that do not know their resource information at compile time.
@@ -23,9 +24,9 @@ pub trait Resource {
     /// Returns the plural name of the kind
     fn plural(dt: &Self::DynamicType) -> Cow<'_, str>;
     // Metadata that all persisted resources must have
-    fn meta(&self) -> &::choreo_meta::ObjectMeta;
+    fn meta(&self) -> &ObjectMeta;
     // Metadata that all persisted resources must have
-    fn meta_mut(&mut self) -> &mut ::choreo_meta::ObjectMeta;
+    fn meta_mut(&mut self) -> &mut ObjectMeta;
 
     /// The type of the `spec` of this resource
     type Spec;
