@@ -47,3 +47,4 @@ choreo_derive = { path = "crates/apimachinery/choreo_derive" }
 validate_derive = {path = "crates/validate_derive"}
 default_derive = {path = "crates/default_derive"}
 fmt = "0.1.0"
+thiserror = "2.0.11"

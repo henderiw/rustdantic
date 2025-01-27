@@ -22,3 +22,6 @@ pub use self::object_reference::ObjectReference;
 
 pub mod relationship_reference;
 pub use self::relationship_reference::RelationReference;
+
+pub mod gvk;
+pub use gvk::{GroupVersion, GroupVersionKind, GroupVersionResource};
