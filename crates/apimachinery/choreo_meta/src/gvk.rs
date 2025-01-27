@@ -9,7 +9,7 @@ use thiserror::Error;
 pub struct ParseGroupVersionError(pub String);
 
 /// Core information about an API Resource.
-#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GroupVersionKind {
     /// API group
     pub group: String,
@@ -78,7 +78,7 @@ impl From<ObjectReference> for GroupVersionKind {
 
 
 /// Core information about a family of API Resources
-#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GroupVersion {
     /// API group
     pub group: String,
@@ -130,7 +130,7 @@ impl GroupVersion {
 }
 
 /// Represents a type-erased object resource.
-#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GroupVersionResource {
     /// API group
     pub group: String,
