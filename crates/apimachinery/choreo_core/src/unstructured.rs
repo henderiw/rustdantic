@@ -39,6 +39,17 @@ impl Unstructured {
     }
 }
 
+// serialize
+impl Unstructured {
+    pub fn to_json(&self) -> Result<String, serde_json::Error> {
+        serde_json::to_string(&self)
+    }
+
+    pub fn to_yaml(&self) -> Result<String, serde_yaml::Error> {
+        serde_yaml::to_string(&self)
+    }
+}
+
 // getters
 impl Unstructured {
     /// Get the `apiVersion` of the object
